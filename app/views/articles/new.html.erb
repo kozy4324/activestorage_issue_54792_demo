@@ -8,6 +8,12 @@
     <%= form.label :title, "Title" %>
     <%= form.text_field :title %>
   </div>
+  <div>
+    <%= form.fields_for :images do |images| %>
+      <%= images.file_field "" %>
+      <%= images.file_field "" %>
+    <% end %>
+  </div>
 
   <div>
     <%= form.submit "Create Article" %>
