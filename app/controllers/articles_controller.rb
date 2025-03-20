@@ -23,12 +23,11 @@ class ArticlesController < ApplicationController
     # active_storage_attachments.record_id,
     # active_storage_attachments.name,
     # active_storage_attachments.blob_id
-
-    # ただしエラーになるのはダイレクトアップロードの場合のみ
-
     params[:article][:images].each do |image|
       @article.images.attach(image)
     end
+
+    # ただしエラーになるのはダイレクトアップロードの場合のみ
 
     if @article.save
       redirect_to @article, notice: "Article was successfully created."
