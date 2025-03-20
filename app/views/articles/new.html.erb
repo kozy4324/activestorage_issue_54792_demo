@@ -10,8 +10,8 @@
   </div>
   <div>
     <%= form.fields_for :images do |images| %>
-      <%= images.file_field "" %>
-      <%= images.file_field "" %>
+      <%= images.file_field "", direct_upload: true %>
+      <%= images.file_field "", direct_upload: true %>
     <% end %>
   </div>
 

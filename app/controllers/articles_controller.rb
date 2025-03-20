@@ -13,6 +13,23 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+
+    # これは大丈夫
+    # @article.images.attach(params[:article][:images])
+
+    # これはダメ、以下のエラーが発生する
+    # SQLite3::ConstraintException: # UNIQUE constraint failed:
+    # active_storage_attachments.record_type,
+    # active_storage_attachments.record_id,
+    # active_storage_attachments.name,
+    # active_storage_attachments.blob_id
+
+    # ただしエラーになるのはダイレクトアップロードの場合のみ
+
+    params[:article][:images].each do |image|
+      @article.images.attach(image)
+    end
+
     if @article.save
       redirect_to @article, notice: "Article was successfully created."
     else
@@ -36,6 +53,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, images: [])
+    params.require(:article).permit(:title)
   end
 end
