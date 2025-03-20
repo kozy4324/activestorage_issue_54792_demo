@@ -1,0 +1,15 @@
+<!-- filepath: /Users/koji.nakamura/work/maybe_active_storage_bug/app/views/articles/new.html.erb -->
+<h1>New Article</h1>
+
+<%= link_to 'Back to Index', articles_path %>
+
+<%= form_with model: @article, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Article" %>
+  </div>
+<% end %>
