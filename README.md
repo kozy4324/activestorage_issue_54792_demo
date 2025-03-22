@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sample Rails app for https://github.com/rails/rails/issues/54792
 
-Things you may want to cover:
+```
+git clone https://github.com/kozy4324/activestorage_issue_54792_demo.git
+cd activestorage_issue_54792_demo
+bundle install
+bin/rails db:migrate
+bin/rails s
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
